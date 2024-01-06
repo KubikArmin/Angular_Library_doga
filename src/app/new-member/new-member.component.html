@@ -1,0 +1,27 @@
+<h1 class="text-center">Új tag rögzítése</h1>
+
+	<form class="row g-3 mb-3">
+		<div class="col-md-8">
+			<label for="txtName" class="form-label">Tag neve</label>
+			<input type="text" class="form-control" name="name" placeholder="Minta Géza" [(ngModel)]="newMember.name">
+		</div>
+		<div class="col-md-4">
+			<label for="txtBirthDate" class="form-label">Születési dátum</label>
+			<input type="date" class="form-control" name="birthDate" [(ngModel)]="newMember.birthDate">
+		</div>
+		<div class="col-md-8">
+			<label for="txtEmail" class="form-label">E-mail</label>
+			<input type="email" class="form-control" name="email" placeholder="minta.geza@email.hu" [(ngModel)]="newMember.email" >
+		</div>
+		<div class="col-md-4">
+			<label for="txtMobil" class="form-label">Mobiltelefon</label>
+			<input type="text" class="form-control" name="mobil" placeholder="+36701234567" [(ngModel)]="newMember.mobil" >
+		</div>
+	</form>
+	<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="alertVisible">
+		Minden mező kitöltése kötelező!
+		<button type="button" class="btn-close" (click)="close()"  ></button>
+	</div>
+	<div class="mt-3 text-center">
+		<button type="button" class="btn btn-primary" (click)="saveData()">Mentés</button>
+	</div>

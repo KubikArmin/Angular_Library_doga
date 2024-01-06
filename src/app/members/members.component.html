@@ -1,0 +1,35 @@
+<form class="row g-3 mb-3">
+  <div class="col-md-4">
+    <label for="txtName" class="form-label">Tag neve</label>
+    <input type="text" class="form-control" name="name" [(ngModel)]="name">
+  </div>
+  <div class="col-md-4">
+    <label class="form-label">&nbsp;</label>
+    <button class="btn btn-primary d-block" type="button" (click)="getMembers()" >Keresés</button>
+  </div>
+  <div class="col-md-4">
+    <label class="form-label">&nbsp;</label>
+    <button class="btn btn-success d-block ms-auto" type="button" (click)="navigateNewMember()" >Új tag</button>
+  </div>
+</form>
+<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="showAlert" >
+  A találatok száma meghaladja az 50-t, kérem pontosítson a keresési feltételen.
+  <!-- {{showAlert}} -->
+  <button type="button" class="btn-close" (click)="close()" ></button>
+</div>
+
+<hr>
+<table class="table table-bordered mt-3" id="table-members" >
+  <tr class="text-center">
+    <th>Olvasójegy száma</th>
+    <th>Név</th>
+    <th>Tagság kezdete</th>
+    <th>Tagság vége</th>
+  </tr>
+  <tr *ngFor="let member of members">
+    <td >{{member.id}}</td>
+    <td>{{member.name}}</td>
+    <td>{{member.from}}</td>
+    <td>{{member.to}}</td>
+  </tr>
+</table>
